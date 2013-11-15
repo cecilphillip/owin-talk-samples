@@ -75,6 +75,7 @@
     <Compile Include="Middleware\OwinExtensions.cs" />
     <Compile Include="Middleware\PingMiddleware.cs" />
     <Compile Include="Middleware\RestrictedIPMiddleware.cs" />
+    <Compile Include="Middleware\TimerMiddleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>,System.Threading.Tasks.Task>;
-
-namespace OwinExpress
+namespace OwinKatanaHelpers.Middleware
 {
     public class TimerMiddleware
     {
-        private readonly AppFunc _nextFunc;
+        private readonly Func<IDictionary<string, object>, Task> _nextFunc;
 
-        public TimerMiddleware(AppFunc nextFunc)
+        public TimerMiddleware(Func<IDictionary<string, object>, Task> nextFunc)
         {
             _nextFunc = nextFunc;
         }
