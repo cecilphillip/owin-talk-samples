@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinKatanaHelpers", "OwinKa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinKatanaHelpers.Tests", "OwinKatanaHelpers.Tests\OwinKatanaHelpers.Tests.csproj", "{7D067E0B-DBE3-4AF6-A88B-3CE398BD06DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinWPFHost", "OwinWPFHost\OwinWPFHost.csproj", "{874056F9-B417-4B09-A703-55EA72585562}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{7D067E0B-DBE3-4AF6-A88B-3CE398BD06DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D067E0B-DBE3-4AF6-A88B-3CE398BD06DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D067E0B-DBE3-4AF6-A88B-3CE398BD06DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{874056F9-B417-4B09-A703-55EA72585562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874056F9-B417-4B09-A703-55EA72585562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874056F9-B417-4B09-A703-55EA72585562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874056F9-B417-4B09-A703-55EA72585562}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
