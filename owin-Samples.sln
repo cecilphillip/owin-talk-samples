@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{46AB56
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinIntegratedPipline", "OwinIntegratedPipline\OwinIntegratedPipline.csproj", "{AE2D34A2-659A-4FEB-9361-93B561F9F21C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{874056F9-B417-4B09-A703-55EA72585562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{874056F9-B417-4B09-A703-55EA72585562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{874056F9-B417-4B09-A703-55EA72585562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE2D34A2-659A-4FEB-9361-93B561F9F21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE2D34A2-659A-4FEB-9361-93B561F9F21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE2D34A2-659A-4FEB-9361-93B561F9F21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE2D34A2-659A-4FEB-9361-93B561F9F21C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
