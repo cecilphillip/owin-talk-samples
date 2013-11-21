@@ -7,6 +7,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open..." Click="OpenFileClick"/>
+                <MenuItem Header="_Save" Click="SaveFileClick"/>
                 <Separator/>
                 <MenuItem Header="E_xit" Click="ExitClick"/>
             </MenuItem>

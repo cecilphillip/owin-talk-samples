@@ -1,14 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Owin.Hosting;
 using Microsoft.Win32;
-using Owin;
 using Path = System.IO.Path;
 
 namespace OwinWPFHost
@@ -18,6 +14,7 @@ namespace OwinWPFHost
         private string _currentFileName;
         private IDisposable _disposableServer;
         private const string Url = "http://localhost:11000";
+          private const string FileName = "Sample.html";
 
         public MainWindow()
         {
@@ -66,18 +63,12 @@ namespace OwinWPFHost
         {
 
         }
-    }
 
-    public class StartupInternal
-    {
-        private const string FileName = "Sample.html";
-
-        public void Configuration(IAppBuilder app)
+        private void SaveFileClick(object sender, RoutedEventArgs e)
         {
             Environment.CurrentDirectory = Environment.CurrentDirectory + @"..\..\..";
-            Process.Start("IExplore.exe", Environment.CurrentDirectory + "\\" + FileName);
-            app.Map("/welcome", welcomeApp => welcomeApp.UseWelcomePage());
-            
+            var filePath = Environment.CurrentDirectory + "\\" + FileName;
+            MainEditor.Save(filePath);
         }
     }
 }
