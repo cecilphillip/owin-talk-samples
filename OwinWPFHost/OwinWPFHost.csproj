@@ -140,6 +140,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Scripts\jquery-1.10.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\112_RefreshArrow_Green_16x16_72.png" />
@@ -147,10 +148,10 @@
     <Resource Include="Images\refresh_16xLG.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sample.html" />
-    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\jquery-1.10.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.0.js" />
+    <Content Include="Scripts\jquery-1.10.0.min.js" />
     <Content Include="Scripts\jquery.signalR-2.0.0.js" />
     <Content Include="Scripts\jquery.signalR-2.0.0.min.js" />
   </ItemGroup>

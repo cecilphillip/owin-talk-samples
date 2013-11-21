@@ -2,7 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using ICSharpCode.AvalonEdit.Highlighting;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Microsoft.Win32;
 using Path = System.IO.Path;
@@ -14,12 +16,19 @@ namespace OwinWPFHost
         private string _currentFileName;
         private IDisposable _disposableServer;
         private const string Url = "http://localhost:11000";
-          private const string FileName = "Sample.html";
+        private const string FileName = "index.html";
+        public static RoutedCommand SaveCommand = new RoutedCommand();
+        private readonly static Lazy<IHubContext> refresHub = new Lazy<IHubContext>(() => GlobalHost.ConnectionManager.GetHubContext<RefreshHub>());
 
         public MainWindow()
         {
             InitializeComponent();
             MainEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("HTML");
+
+            Environment.CurrentDirectory = Environment.CurrentDirectory + @"..\..\..";
+            _currentFileName = Environment.CurrentDirectory + "\\" + FileName;
+            SaveCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+            MainEditor.Load(_currentFileName);
         }
 
         private void OpenFileClick(object sender, RoutedEventArgs e)
@@ -55,20 +64,20 @@ namespace OwinWPFHost
                 var startup = new StartOptions();
                 startup.Urls.Add(Url);
                 _disposableServer = WebApp.Start<StartupInternal>(Url);
-            
+
             }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            refresHub.Value.Clients.All.refresh();
         }
 
         private void SaveFileClick(object sender, RoutedEventArgs e)
         {
-            Environment.CurrentDirectory = Environment.CurrentDirectory + @"..\..\..";
-            var filePath = Environment.CurrentDirectory + "\\" + FileName;
-            MainEditor.Save(filePath);
+            _currentFileName = Environment.CurrentDirectory + "\\" + FileName;
+            MainEditor.Save(_currentFileName);
+            refresHub.Value.Clients.All.refresh();
         }
     }
 }
