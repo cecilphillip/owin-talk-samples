@@ -19,7 +19,7 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <!--//<Button Content="Launch" ></Button>-->
-                <Button>
+                <Button Click="Launch_Button_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Images/base_globe_32.png"  Width="20" Height="20" />
                         <TextBlock>Launch</TextBlock>
@@ -27,7 +27,7 @@
                 </Button>
 
                 <!--<Button Content="Refresh"></Button>-->
-                <Button>
+                <Button Click="Refresh_Button_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Images/112_RefreshArrow_Green_16x16_72.png" />
                         <TextBlock>Refresh</TextBlock>

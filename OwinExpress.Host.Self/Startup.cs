@@ -1,8 +1,9 @@
 ﻿using System;
 using Owin;
 
-namespace OwinExpress.Host.Web
+namespace OwinExpress.Host.Self
 {
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)
