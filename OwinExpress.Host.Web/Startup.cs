@@ -7,6 +7,7 @@ namespace OwinExpress.Host.Web
     {
         public void Configuration(IAppBuilder app)
         {
+            
             app.UseErrorPage();
             app.UseMethodOverride();
 

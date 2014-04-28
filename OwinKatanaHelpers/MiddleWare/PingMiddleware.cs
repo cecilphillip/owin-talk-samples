@@ -1,19 +1,24 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Owin;
 
 namespace OwinKatanaHelpers.Middleware
 {
-    public class PingMiddleware : OwinMiddleware
+    public class PingMiddleware
     {
+        private readonly Func<IDictionary<string, object>, Task> _next;
         private const string PingMe = "X-PingMe";
         private const string PingBack = "X-PingBack";
 
-        public PingMiddleware(OwinMiddleware next) : base(next)
+        public PingMiddleware(Func<IDictionary<string, object>, Task> next)
         {
+            this._next = next;
         }
 
-        public async override Task Invoke(IOwinContext context)
+        public async Task Invoke(IDictionary<string, object> env)
         {
+            var context = new OwinContext(env);
             if (context.Request.Headers.Keys.Contains(PingMe))
             {
                 var value = context.Request.Headers[PingMe];
@@ -22,7 +27,7 @@ namespace OwinKatanaHelpers.Middleware
                 return;
             }
 
-            await Next.Invoke(context);
+            await _next(env);
         }
     }
 }

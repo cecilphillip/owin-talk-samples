@@ -11,11 +11,9 @@ namespace OwinKatanaHelpers
         public void Configuration(IAppBuilder app)
         {
             var deniedAddress = "192.168.1.1";
-            app.Use<RestrictedIpMiddleware>(new HashSet<string> { deniedAddress });
+            //app.Use<RestrictedIpMiddleware>(new HashSet<string> { deniedAddress });
             app.Use<PingMiddleware>();
-            
-            //app.Use(typeof (PingMiddleWare));
-            //app.UsePing();
+                      
             app.Run(InvokeContext);
         }
 

@@ -7,13 +7,13 @@ namespace OwinRaw.Middleware
 {
     public class PingMiddleware
     {
-        private readonly Func<IDictionary<string, object>, Task> next;
+        private readonly Func<IDictionary<string, object>, Task> _next;
         private const string PingMe = "X-PingMe";
         private const string PingBack = "X-PingBack";
 
         public PingMiddleware(Func<IDictionary<string, object>, Task> next)
         {
-            this.next = next;
+            this._next = next;
         }
 
         public async Task Invoke(IDictionary<string, object> env)
@@ -30,7 +30,7 @@ namespace OwinRaw.Middleware
                 return;
             }
 
-            await next(env);
+            await _next(env);
         }
     }
 }

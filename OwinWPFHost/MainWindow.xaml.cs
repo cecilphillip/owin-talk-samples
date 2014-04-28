@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,7 +26,6 @@ namespace OwinWPFHost
             InitializeComponent();
             MainEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("HTML");
 
-            Environment.CurrentDirectory = Environment.CurrentDirectory + @"..\..\..";
             _currentFileName = Environment.CurrentDirectory + "\\" + FileName;
             SaveCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
             MainEditor.Load(_currentFileName);
@@ -66,6 +66,7 @@ namespace OwinWPFHost
                 _disposableServer = WebApp.Start<StartupInternal>(Url);
 
             }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
+            Process.Start("IExplore.exe", Url);
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)

@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Owin;
+using OwinRaw.Middleware;
 using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 namespace OwinRaw
 {
@@ -15,14 +16,9 @@ namespace OwinRaw
             app.UseErrorPage();
             //app.Use(typeof (PingMiddleWare));
             //app.UsePing();
-            //app.Use(new Func<AppFunc, AppFunc>(next => new PingMiddleWare(next).Invoke));
-            app.Map("/invoke", sub =>
-                {
-                    sub.Use(new Func<AppFunc, AppFunc>(next => (AppFunc)Invoke));
-
-                });
-
-            app.UseWelcomePage();
+            app.Use<PingMiddleware>();
+            app.Use(new Func<AppFunc, AppFunc>(next => Invoke));
+            
         }
 
 
