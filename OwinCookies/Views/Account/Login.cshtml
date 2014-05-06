@@ -1,0 +1,19 @@
+﻿@model OwinCookies.Models.LoginModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <label>User name </label>
+        @Html.TextBoxFor(m => m.UserName)
+    
+        <label>Password </label>
+        @Html.PasswordFor(m => m.Password)
+    </div>
+    
+    <input type="submit" value="Submit"/>
+}
