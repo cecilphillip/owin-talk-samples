@@ -4,6 +4,7 @@ using Microsoft.Owin;
 
 namespace OwinKatanaHelpers.Middleware
 {
+    /* Alternative way of building middleware but not recommended */
     public class RestrictedIpMiddleware : OwinMiddleware
     {
         private readonly HashSet<string> deniedIps;

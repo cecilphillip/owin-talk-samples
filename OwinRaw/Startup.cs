@@ -13,12 +13,15 @@ namespace OwinRaw
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseErrorPage();
-            //app.Use(typeof (PingMiddleWare));
-            //app.UsePing();
-            app.Use<PingMiddleware>();
+
             app.Use(new Func<AppFunc, AppFunc>(next => Invoke));
             
+            
+            #region More Wiring
+            app.Use((ctx, next) => ctx.Response.WriteAsync("Hi OWIN"));
+            app.Use<PingMiddleware>();
+            #endregion
+
         }
 
 
